@@ -61,8 +61,9 @@ import org.java_websocket.interfaces.ISSLChannel;
 import org.java_websocket.protocols.IProtocol;
 import org.java_websocket.server.WebSocketServer.WebSocketWorker;
 import org.java_websocket.util.Charsetfunctions;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.java_websocket.util.Logger;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 /**
  * Represents one end (client or server) of a single WebSocketImpl connection. Takes care of the
@@ -90,7 +91,7 @@ public class WebSocketImpl implements WebSocket {
    *
    * @since 1.4.0
    */
-  private final Logger log = LoggerFactory.getLogger(WebSocketImpl.class);
+  private final Logger log = new Logger();
 
   /**
    * Queue of buffers that need to be sent to the client.

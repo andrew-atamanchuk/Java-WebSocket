@@ -47,8 +47,9 @@ import javax.net.ssl.SSLEngineResult.Status;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import org.java_websocket.interfaces.ISSLChannel;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.java_websocket.util.Logger;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 /**
  * Implements the relevant portions of the SocketChannel interface with the SSLEngine wrapper.
@@ -66,7 +67,7 @@ public class SSLSocketChannel2 implements ByteChannel, WrappedByteChannel, ISSLC
    *
    * @since 1.4.0
    */
-  private final Logger log = LoggerFactory.getLogger(SSLSocketChannel2.class);
+  private final Logger log = new Logger();
 
   protected ExecutorService exec;
 

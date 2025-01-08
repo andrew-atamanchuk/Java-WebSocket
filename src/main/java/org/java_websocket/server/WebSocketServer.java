@@ -67,8 +67,9 @@ import org.java_websocket.framing.CloseFrame;
 import org.java_websocket.framing.Framedata;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.handshake.Handshakedata;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.java_websocket.util.Logger;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 /**
  * <code>WebSocketServer</code> is an abstract class that only takes care of the
@@ -84,7 +85,7 @@ public abstract class WebSocketServer extends AbstractWebSocket implements Runna
    *
    * @since 1.4.0
    */
-  private final Logger log = LoggerFactory.getLogger(WebSocketServer.class);
+  private final Logger log = new Logger();
 
   /**
    * Holds the list of active WebSocket connections. "Active" means WebSocket handshake is complete
@@ -151,7 +152,7 @@ public abstract class WebSocketServer extends AbstractWebSocket implements Runna
 
   /**
    * @param address      The address (host:port) this server should listen on.
-   * @param decodercount The number of {@link WebSocketWorker}s that will be used to process the
+   * @param decodercount The number of {@link }s that will be used to process the
    *                     incoming network data. By default this will be <code>Runtime.getRuntime().availableProcessors()</code>
    * @see #WebSocketServer(InetSocketAddress, int, List, Collection) more details here
    */
@@ -171,7 +172,7 @@ public abstract class WebSocketServer extends AbstractWebSocket implements Runna
 
   /**
    * @param address      The address (host:port) this server should listen on.
-   * @param decodercount The number of {@link WebSocketWorker}s that will be used to process the
+   * @param decodercount The number of {@link }s that will be used to process the
    *                     incoming network data. By default this will be <code>Runtime.getRuntime().availableProcessors()</code>
    * @param drafts       The versions of the WebSocket protocol that this server instance should
    *                     comply to. Clients that use an other protocol version will be rejected.
@@ -1085,7 +1086,7 @@ public abstract class WebSocketServer extends AbstractWebSocket implements Runna
       setUncaughtExceptionHandler(new UncaughtExceptionHandler() {
         @Override
         public void uncaughtException(Thread t, Throwable e) {
-          log.error("Uncaught exception in thread {}: {}", t.getName(), e);
+          log.error("Uncaught exception in thread {" + t.getName() + "}: {" + e + "}");
         }
       });
     }
@@ -1113,7 +1114,7 @@ public abstract class WebSocketServer extends AbstractWebSocket implements Runna
         Exception exception = new Exception(e);
         handleFatal(ws, exception);
       } catch (Throwable e) {
-        log.error("Uncaught exception in thread {}: {}", getName(), e);
+        log.error("Uncaught exception in thread {" + getName() + "}: {" + e + "}");
         if (ws != null) {
           Exception exception = new Exception(e);
           onWebsocketError(ws, exception);

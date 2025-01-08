@@ -32,9 +32,10 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import org.java_websocket.framing.CloseFrame;
+import org.java_websocket.util.Logger;
 import org.java_websocket.util.NamedThreadFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 
 /**
@@ -47,7 +48,7 @@ public abstract class AbstractWebSocket extends WebSocketAdapter {
    *
    * @since 1.4.0
    */
-  private final Logger log = LoggerFactory.getLogger(AbstractWebSocket.class);
+  private final Logger log = new Logger();
 
   /**
    * Attribute which allows you to deactivate the Nagle's algorithm

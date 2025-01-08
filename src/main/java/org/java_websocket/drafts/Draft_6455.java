@@ -66,8 +66,9 @@ import org.java_websocket.protocols.IProtocol;
 import org.java_websocket.protocols.Protocol;
 import org.java_websocket.util.Base64;
 import org.java_websocket.util.Charsetfunctions;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.java_websocket.util.Logger;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 /**
  * Implementation for the RFC 6455 websocket protocol This is the recommended class for your
@@ -110,7 +111,7 @@ public class Draft_6455 extends Draft {
    *
    * @since 1.4.0
    */
-  private final Logger log = LoggerFactory.getLogger(Draft_6455.class);
+  private final Logger log = new Logger();
 
   /**
    * Attribute for the used extension in this draft
@@ -651,7 +652,7 @@ public class Draft_6455 extends Draft {
       throw new LimitExceededException("Payloadsize is to big...");
     }
     if (length > maxFrameSize) {
-      log.trace("Payload limit reached. Allowed: {} Current: {}", maxFrameSize, length);
+      log.trace("Payload limit reached. Allowed: {" + maxFrameSize + "} Current: {" + length + "}");
       throw new LimitExceededException("Payload limit reached.", maxFrameSize);
     }
     if (length < 0) {
@@ -1102,7 +1103,7 @@ public class Draft_6455 extends Draft {
     long totalSize = getByteBufferListSize();
     if (totalSize > maxFrameSize) {
       clearBufferList();
-      log.trace("Payload limit reached. Allowed: {} Current: {}", maxFrameSize, totalSize);
+      log.trace("Payload limit reached. Allowed: {" + maxFrameSize + "} Current: { " + totalSize + "}");
       throw new LimitExceededException(maxFrameSize);
     }
   }

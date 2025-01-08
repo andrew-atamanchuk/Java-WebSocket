@@ -2,7 +2,7 @@
  * This module implements a barebones WebSocket server and client.
  */
 module org.java_websocket {
-    requires transitive org.slf4j;
+    //requires transitive org.slf4j;
 
     exports org.java_websocket;
     exports org.java_websocket.client;
