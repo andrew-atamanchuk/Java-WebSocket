@@ -1,4 +1,17 @@
 # Change log
+###############################################################################
+## Version Release 1.6.0 (2025/01/08)
+
+#### Breaking Changes
+
+* [PR 1399](https://github.com/TooTallNate/Java-WebSocket/pull/1399) - Dependency has been removed for slf4j
+
+#### Bugs Fixed
+
+
+#### New Features
+
+In this release 0 issues and 1 pull requests were closed.
 
 ###############################################################################
 ## Version Release 1.5.7 (2024/07/08)
