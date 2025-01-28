@@ -185,7 +185,7 @@ public class Draft_6455 extends Draft {
    * @param inputExtension the extension which should be used for this draft
    * @since 1.3.5
    */
-  public Draft_6455(IExtension inputExtension) {
+  public Draft_6455(final IExtension inputExtension) {
     this(Collections.singletonList(inputExtension));
   }
 
@@ -195,7 +195,7 @@ public class Draft_6455 extends Draft {
    * @param inputExtensions the extensions which should be used for this draft
    * @since 1.3.5
    */
-  public Draft_6455(List<IExtension> inputExtensions) {
+  public Draft_6455(final List<IExtension> inputExtensions) {
     this(inputExtensions, Collections.<IProtocol>singletonList(new Protocol("")));
   }
 
@@ -207,7 +207,7 @@ public class Draft_6455 extends Draft {
    * @param inputProtocols  the protocols which should be used for this draft
    * @since 1.3.7
    */
-  public Draft_6455(List<IExtension> inputExtensions, List<IProtocol> inputProtocols) {
+  public Draft_6455(final List<IExtension> inputExtensions, final List<IProtocol> inputProtocols) {
     this(inputExtensions, inputProtocols, Integer.MAX_VALUE);
   }
 
@@ -220,7 +220,7 @@ public class Draft_6455 extends Draft {
    *                          frames can be bigger)
    * @since 1.4.0
    */
-  public Draft_6455(List<IExtension> inputExtensions, int inputMaxFrameSize) {
+  public Draft_6455(final List<IExtension> inputExtensions, final int inputMaxFrameSize) {
     this(inputExtensions, Collections.<IProtocol>singletonList(new Protocol("")),
         inputMaxFrameSize);
   }
@@ -235,8 +235,8 @@ public class Draft_6455 extends Draft {
    *                          frames can be bigger)
    * @since 1.4.0
    */
-  public Draft_6455(List<IExtension> inputExtensions, List<IProtocol> inputProtocols,
-      int inputMaxFrameSize) {
+  public Draft_6455(final List<IExtension> inputExtensions, final List<IProtocol> inputProtocols,
+                    final int inputMaxFrameSize) {
     if (inputExtensions == null || inputProtocols == null || inputMaxFrameSize < 1) {
       throw new IllegalArgumentException();
     }
@@ -260,7 +260,7 @@ public class Draft_6455 extends Draft {
   }
 
   @Override
-  public HandshakeState acceptHandshakeAsServer(ClientHandshake handshakedata)
+  public HandshakeState acceptHandshakeAsServer(final ClientHandshake handshakedata)
       throws InvalidHandshakeException {
     int v = readVersion(handshakedata);
     if (v != 13) {
@@ -292,7 +292,7 @@ public class Draft_6455 extends Draft {
    * @param requestedProtocol the requested protocol
    * @return MATCHED if it is matched, otherwise NOT_MATCHED
    */
-  private HandshakeState containsRequestedProtocol(String requestedProtocol) {
+  private HandshakeState containsRequestedProtocol(final String requestedProtocol) {
     for (IProtocol knownProtocol : knownProtocols) {
       if (knownProtocol.acceptProvidedProtocol(requestedProtocol)) {
         protocol = knownProtocol;
@@ -304,7 +304,7 @@ public class Draft_6455 extends Draft {
   }
 
   @Override
-  public HandshakeState acceptHandshakeAsClient(ClientHandshake request, ServerHandshake response)
+  public HandshakeState acceptHandshakeAsClient(final ClientHandshake request, final ServerHandshake response)
       throws InvalidHandshakeException {
     if (!basicAccept(response)) {
       log.trace("acceptHandshakeAsClient - Missing/wrong upgrade or connection in handshake.");
