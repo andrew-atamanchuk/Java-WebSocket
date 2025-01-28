@@ -65,7 +65,7 @@ If you do not use any dependency management tool, you can find the latest standa
 Writing your own WebSocket Server
 ---------------------------------
 
-The `org.java_websocket.server.WebSocketServer` abstract class implements the
+The `server.ath.java_websocket.WebSocketServer` abstract class implements the
 server-side of the
 [WebSocket Protocol](http://www.whatwg.org/specs/web-socket-protocol/).
 A WebSocket server by itself doesn't do anything except establish socket
@@ -76,7 +76,7 @@ An example for a WebSocketServer can be found in both the [wiki](https://github.
 Writing your own WebSocket Client
 ---------------------------------
 
-The `org.java_websocket.client.WebSocketClient` abstract class can connect to
+The `client.ath.java_websocket.WebSocketClient` abstract class can connect to
 valid WebSocket servers. The constructor expects a valid `ws://` URI to
 connect to. Important events `onOpen`, `onClose`, `onMessage` and `onError`
 get fired throughout the life of the WebSocketClient, and must be implemented
