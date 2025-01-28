@@ -19,7 +19,7 @@
         <maven.test.skip>true</maven.test.skip>
         <!-- Maven plugin versions -->
         <bnd.maven.plugin.version>6.4.0</bnd.maven.plugin.version>
-        <maven.checkstyle.plugin.version>3.1.1</maven.checkstyle.plugin.version>
+        <!--maven.checkstyle.plugin.version>3.1.1</maven.checkstyle.plugin.version-->
         <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
         <maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
         <maven.jar.plugin.version>3.3.0</maven.jar.plugin.version>
@@ -67,7 +67,7 @@
         <!-- configured plugins -->
         <pluginManagement>
             <plugins>
-                <plugin>
+                <!--plugin>
                     <groupId>biz.aQute.bnd</groupId>
                     <artifactId>bnd-maven-plugin</artifactId>
                     <version>${bnd.maven.plugin.version}</version>
@@ -92,7 +92,6 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <!--version>${maven.compiler.plugin.version}</version-->
                     <executions>
                         <execution>
                             <id>default-compile</id>
@@ -184,7 +183,7 @@
                     <groupId>org.sonatype.plugins</groupId>
                     <artifactId>nexus-staging-maven-plugin</artifactId>
                     <version>${nexus.staging.maven.plugin.version}</version>
-                </plugin>
+                </plugin-->
             </plugins>
         </pluginManagement>
         <sourceDirectory>src/main/java</sourceDirectory>
